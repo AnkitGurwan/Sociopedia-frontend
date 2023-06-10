@@ -22,7 +22,7 @@ const Navbar = () => {
               {mode==='light'?<li class="text-black text-lg mt-2 cursor-pointer px-4"><span class="material-symbols-outlined" onClick={()=>dispatch(setMode())}>lightbulb
               </span></li>:<li class="text-white text-lg mt-2 cursor-pointer px-4" onClick={()=>dispatch(setMode())}><span class="material-symbols-outlined">lightbulb
               </span></li>}
-                <li><Link to={`/home`} class="text-white text-lg hover:text-gray-300 px-4">Home</div></li>
+                <li><Link to={`/home`} class="text-white text-lg hover:text-gray-300 px-4">Home</Link></li>
                 
                 <li><Link to={`/profile/${user._id}`} class="text-white text-lg hover:text-gray-300 px-4">My Posts</Link></li>
                 <li><Link to={`/`} class="text-white text-md bg-red-600 py-1 rounded-md hover:bg-red-500 px-2 ml-12" onClick={logoutHandler}>Log Out</Link></li>
