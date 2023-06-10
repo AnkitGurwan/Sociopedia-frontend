@@ -24,7 +24,7 @@ const Friendslistcard =  ( props ) => {
             <div className='cursor-pointer' onClick={() => {
             navigate(`/profile/${friend._id}`);
           }}>
-                <img src={`http://localhost:5000/assets/${friend.picturePath}`} className='rounded-full object-cover h-12 w-16 md:w-12' alt='user' />
+                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${friend.picturePath}`} className='rounded-full object-cover h-12 w-16 md:w-12' alt='user' />
             </div>
             <div className='w-36 md:w-48 pl-2 md:pl-4 pr-1 cursor-pointer' onClick={() => {
             navigate(`/profile/${friend._id}`);

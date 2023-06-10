@@ -52,7 +52,7 @@ const Feeds = (
         <div className={"rounded-lg "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
             <div className='h-20 flex items-center px-5'>
                 <div className=''>
-                    <img src={`http://localhost:5000/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
+                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
                 <div className='w-72 pl-4 pr-1'>
                     <div className={"font-bold text-sm capitalize "+(mode==='light'?"text-black":"text-gray-300")}>{name}</div>
@@ -69,7 +69,7 @@ const Feeds = (
             <hr/>
             <div className='h-3/4 px-4'>
                 <div className={"py-2 px-1 text-sm capitalize "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
-                <img src={`http://localhost:5000/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
+                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
             </div>
             <div className='px-4 py-2 flex items-center'>
                 <div className='flex items-center p-2 text-sm cursor-pointer ' onClick={likeHandler}>{liked?<div className='flex items-center'><span onClick={()=>setLiked(false)} class="material-symbols-outlined p-1 text-lg text-pink-600 ">favorite</span><span className=' text-pink-600'>{likeCount}</span></div>

@@ -57,7 +57,7 @@ const Feeds = (
         <div className={"rounded-lg "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
             <div className='h-20 flex items-center px-6'>
                 <div className=''>
-                    <img src={`http://localhost:5000/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
+                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
                 <div className='w-72 md:w-80 pl-4 '>
                     <div className={"font-bold text-sm "+(mode==='light'?"text-black":"text-gray-300")}>{name}</div>
@@ -72,7 +72,7 @@ const Feeds = (
                 </div>
             </div>
             <div className='h-3/4 px-6 pt-2'>
-                <img src={`http://localhost:5000/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
+                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
                 <div className={"pt-1 px-1 capitalize text-sm "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
 
             </div>

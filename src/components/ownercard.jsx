@@ -11,7 +11,7 @@ const Ownercard = () => {
         <div className={"rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 pt-1 pb-2 "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
             <div className='h-24 flex py-1 items-center px-1'>
                 <div className=''>
-                    <img src={`http://localhost:5000/assets/${user.picturePath}`} className='rounded-full object-cover h-12 w-12 mr-2' alt='user' />
+                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-12 w-12 mr-2' alt='user' />
                 </div>
                 <div className='w-48 pl-4 pr-1'>
                     <div className={"font-bold text-lg capitalize "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}</div>
