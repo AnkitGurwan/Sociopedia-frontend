@@ -6,7 +6,7 @@ import { setFriends, setLogin , setPosts } from "state";
 
 const AuthState = (props) => {
 
-    const url = "https://sociopediabackend-0ha7.onrender.com";
+    const url = "https://sociopedia-backend-3olo.onrender.com";
     const dispatch = useDispatch();
     const [specificProjects,setSpecificProjects]=useState([]);
     const [specificDetails,setSpecificDetails]=useState([]);
