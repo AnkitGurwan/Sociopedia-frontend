@@ -14,17 +14,17 @@ const HomePage = () => {
     const { getPosts } = useContext(AuthContext);
     const user = useSelector((state) => state.user);
     const mode = useSelector((state) => state.mode);
+    const [loading,setLoading] = useState(true);
     
     
     const posts = useSelector((state) => state.posts);
 
     const getItem=async ()=>{        
-        await getPosts(); 
+        const x=await getPosts(); 
+        if(x===200)setLoading(false);
     };
 
     useEffect(()=>{
-        
-        
         {
             getItem();
         }
@@ -32,6 +32,14 @@ const HomePage = () => {
     return (
         <div className="h-full w-full">
             <Navbar/>
+            {loading?
+            <div
+                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                role="status">
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                    >Loading...</span>
+            </div>:
             <div className={"h-fit w-full grid grid-cols-2 md:grid-cols-3 absolute top-20 md:top-0 "+(mode==='light'?"bg-white":"bg-gray-900")}>
                 <div className="col-span-1 pt-16 md:pt-20 fixed left-0 md:left-12">
                     <div className="w-2/3 md:w-4/5 ml-4 ">
@@ -61,6 +69,7 @@ const HomePage = () => {
                     <Friendlist/>
                 </div>
             </div>
+            }
             
         </div>
 );
