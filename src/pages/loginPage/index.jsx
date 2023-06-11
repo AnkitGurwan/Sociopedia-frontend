@@ -21,7 +21,7 @@ const LoginPage = () => {
     }
 
     const loginSubmitHandler = async (event) => {
-        document.getElementById('signIn').classList.add='animate-pulse';
+        document.getElementById('signIn').classList.add = 'animate-pulse';
         event.preventDefault();
         const x = await Login(user.email,user.password)
     
@@ -72,7 +72,7 @@ const LoginPage = () => {
                 <div className="">
                     <div className="text-3xl md:text-4xl text-white font-bold py-1">👋New Here?</div>
                     <div className="text-xl text-white font-medium py-1 mb-8 pl-4">Sign up and discover more!</div>
-                    <button className="w-24 h-10 font-medium bg-white rounded  ml-20 md:ml-4 text-black font-white hover:bg-gray-200" onClick={clickHandler}>Sign Up</button>
+                    <button id="signUp" className="w-24 h-10 font-medium bg-white rounded  ml-20 md:ml-4 text-black font-white hover:bg-gray-200" onClick={clickHandler}>Sign Up</button>
                 </div>
             </div>
         </body>
