@@ -37,7 +37,7 @@ const HomePage = () => {
             
             <div class="w-full flex item-center justify-center h-96">
             {loading?
-            <div class="border my-12 border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+            <div class=" col-span-1 border my-12 border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto">
                 <div class="animate-pulse flex space-x-4">
                 <div class="rounded-full bg-slate-200 h-10 w-10"></div>
                 <div class="flex-1 space-y-6 py-1">
@@ -60,7 +60,7 @@ const HomePage = () => {
                     </div> 
                 </div>}
             {loading?
-            <div class="w-full flex item-center justify-center h-96">
+            <div class="col-span-1 w-full flex item-center justify-center h-96">
                 <div
                 class="my-auto h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                 role="status">
@@ -85,7 +85,7 @@ const HomePage = () => {
                     )
                 )}
                 </div>}
-                {loading?<div class="border my-12 border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                {loading?<div class="col-span-1 border my-12 border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto">
                     <div class="animate-pulse flex space-x-4">
                         <div class="rounded-full bg-slate-200 h-10 w-10"></div>
                         <div class="flex-1 space-y-6 py-1">

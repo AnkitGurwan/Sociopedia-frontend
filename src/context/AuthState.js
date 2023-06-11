@@ -76,6 +76,7 @@ const AuthState = (props) => {
         
         const json = await response.json();
         setSpecificProjects(json.reverse());
+        return response.status;
     }
 
     const getUserDetails = async (id) => {
@@ -89,6 +90,7 @@ const AuthState = (props) => {
         
         const json = await response.json();
         setSpecificDetails(json);
+        return response.status;
     }
 
     const addRemoveFriend = async (id,friendId) => {
