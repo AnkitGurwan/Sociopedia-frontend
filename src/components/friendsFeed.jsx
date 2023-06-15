@@ -53,9 +53,9 @@ const Feeds = (
     }
 
   return (
-    <div className='h-fit rounded-lg my-6'>
-        <div className={"rounded-lg "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
-            <div className='h-20 flex items-center px-6'>
+    <div className='h-fit rounded-t-lg border my-6'>
+        <div className={"rounded-sm "+(mode==='light'?" ":"bg-gray-800")}>
+            <div className='h-16 flex items-center px-6 rounded-t-lg bg-gray-100'>
                 <div className=''>
                     <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
@@ -63,20 +63,13 @@ const Feeds = (
                     <div className={"font-bold text-sm "+(mode==='light'?"text-black":"text-gray-300")}>{name}</div>
                     <div className='text-muted text-gray-500 text-xs'>{location}</div>
                 </div>
-                <div className='ml-3' onClick={friendhandler}>
-                    {check?
-                    <span class="material-symbols-outlined text-blue-600 text-xl h-7 w-7 flex items-center justify-center rounded-full hover:bg-blue-200 cursor-pointer">
-                        group_add
-                    </span>:""
-                 }
-                </div>
             </div>
-            <div className='h-3/4 px-6 pt-2'>
-                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
-                <div className={"pt-1 px-1 capitalize text-sm "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
-
+            <hr/>
+            <div className='h-3/4 px-4 pt-2 bg-white'>
+                <div className={"pt-1 px-1 capitalize pb-2 text-sm "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
+                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-md object-cover' alt='userimage' />
             </div>
-            <div className='px-4 py-2 flex items-center'>
+            <div className='px-4 py-1 flex items-center bg-white'>
                 <div className='flex items-center p-2 text-sm cursor-pointer' onClick={likeHandler}>{liked?<div className='flex items-center'><span onClick={()=>setLiked(false)} class="material-symbols-outlined p-1 text-lg text-pink-600 ">favorite</span><span className=' text-pink-600'>{likeCount}</span></div>
                 :<div className='flex items-center'><span onClick={()=>setLiked(true)} class={"material-symbols-outlined p-1 text-lg text-gray-300 "+ (mode==='light'?"text-gray-800":"text-gray-300")}>favorite</span>
                 <span className={"text-gray-300 "+ (mode==='light'?"text-gray-800":"text-gray-300")}>{likeCount}</span></div>}

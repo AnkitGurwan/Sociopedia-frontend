@@ -3,11 +3,13 @@ import { Link , useNavigate } from 'react-router-dom';
 import AuthContext from 'context/AuthContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from '../../components/spinner';
 
 const RegisterPage = () => {
     const { registerUser } = useContext(AuthContext);
     const Navigate = useNavigate();
     const [formValue, setFormValue] = useState();
+    const [effect, setEffect] = useState(false);
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -40,22 +42,26 @@ const RegisterPage = () => {
     }
 
     const loginSubmitHandler = async (event) => {
+        setEffect(true);
         event.preventDefault();
         // const picturepathtosend=user.picture.replace(/^.*\\/, "");
         const x = await registerUser(formdata)
     
         if(x === 201){
+          setEffect(false);
           toast.success('Registered Successfully', {
           position: toast.POSITION.TOP_CENTER
         });
           Navigate('/');
         }
         else if( x === 400 ){
+          setEffect(false);
           toast.error('User email already exists.', {
           position: toast.POSITION.TOP_CENTER
         });
         }
         else {
+            setEffect(false);
             toast.error('Could not register. Please try again later.', {
             position: toast.POSITION.TOP_CENTER
           });
@@ -101,7 +107,7 @@ const RegisterPage = () => {
                     </div>
 
                     <div className='mb-2'>
-                        <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer" type="submit" value="Register">Register</button>
+                        <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer" type="submit" value="Register">{effect?<div className="flex items-center justify-center "><Spinner/><span className="font-semibold text-lg mx-2" >Loading...</span></div>:<div className="font-semibold text-lg">Register</div>}</button>
                     </div>
                     <div className='pt-2 pl-1'>
                         <Link to={`/`} className='text-blue-700 no-underline hover:underline'>Already have an account?</Link>

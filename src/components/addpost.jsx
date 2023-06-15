@@ -62,11 +62,11 @@ const AddPost = () => {
     }
 
       return (
-        <div className='pb-3 mr-2 md:mr-0'>
-          <form onSubmit={submitHandler} className={"rounded-lg "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
+        <div className='mr-0 border rounded-sm'>
+          <form onSubmit={submitHandler} className={" "+(mode==='light'?"bg-white":"bg-gray-800")}>
               <div className='flex p-1 md:p-4'>
                 <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='h-10 md:h-12 w-10 md:w-12 rounded-full mr-2 object-cover' alt='' />
-                <input type='text' className={"mx-1 w-full rounded-full my-auto h-9 text-xs pl-2 md:pl-4 text-start focus:outline-none "+ (mode==='light'?"bg-gray-200":"bg-gray-700")} name='description' id='description' required value={post.description} onChange={onChangeHandler} placeholder='What is in your mind ...'/>
+                <input type='text' className={"mx-1 w-full border rounded-full my-auto h-9 text-xs pl-2 md:pl-4 text-start focus:outline-none "+ (mode==='light'?"bg-gray-100":"bg-gray-700")} name='description' id='description' required value={post.description} onChange={onChangeHandler} placeholder='What is in your mind ...'/>
               </div>
               {mode==='light'?<hr/>:""}
               {showImage?<div className={"w-full py-2 px-0 md:px-4 "+ (mode==='light'?"bg-white":"bg-gray-700")}>

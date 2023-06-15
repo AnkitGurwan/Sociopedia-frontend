@@ -10,10 +10,11 @@ const Friendlist = () => {
       const mode = useSelector((state) => state.mode);
       const length=user.friends.length;
       
+      
       const { getFriends } = useContext(AuthContext);
 
       const getItem = async ()=>{        
-        await getFriends(user._id); 
+        const x=await getFriends(user._id); 
     };
 
     useEffect(()=>{
@@ -21,10 +22,10 @@ const Friendlist = () => {
     },[]
     );
       return (
-        <div className='mt-0 md:mt-8 mx-4 md:mx-10 rounded-lg'>
-          <div className={"rounded-lg p-3 " + (mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
-              <div className={"font-bold  text-2xl md:text-lg p-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
-              <div className='p-2'>
+        <div className='mt-0 md:mt-8 mx-1 md:mx-10 rounded-lg'>
+          <div className={"rounded-lg px-1 py-2 md:py-3 md:px-3 " + (mode==='light'?"bg-white border":"bg-gray-800")}>
+              <div className={"font-bold  text-sm md:text-lg p-0 md:p-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
+              <div className='px-1 md:px-2 py-3 md:py-2'>
               {length?friends.map((friend,i) => (
                 <Friend
                   key={i}

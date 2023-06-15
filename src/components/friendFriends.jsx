@@ -10,6 +10,7 @@ const Friendlist = () => {
       const user = useSelector((state) => state.user);
       const length=user.friends.length;
       const mode = useSelector((state) => state.mode);
+      
       const params=useParams();
       const id=params.id;
       
@@ -24,8 +25,8 @@ const Friendlist = () => {
     },[]
     );
       return (
-        <div className='mt-6 mx-10'>
-          <div className={"rounded-lg p-3 "+ (mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
+        <div className='mt-6 mx-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
+          <div className={"rounded-md p-2 "+ (mode==='light'?"bg-gray-50 border":"bg-gray-800")}>
               <div className={"font-bold text-lg p-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
               <div className='p-2'>
               {length?friends.map((friend,i) => (

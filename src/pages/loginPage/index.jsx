@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "context/AuthContext.js";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from "components/spinner";
+
 
 const LoginPage = () => {
     const { Login } = useContext(AuthContext);
     const Navigate = useNavigate();
+    const [effect, setEffect] = useState(false);
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -21,12 +24,13 @@ const LoginPage = () => {
     }
 
     const loginSubmitHandler = async (event) => {
-        document.getElementById('signIn').classList.add = 'animate-pulse';
+        // document.getElementById('signIn').classList.add = "animate-pulse";
+        setEffect(true);
         event.preventDefault();
         const x = await Login(user.email,user.password)
     
         if(x === 200){
-        document.getElementById('signIn').classList.remove='animate-pulse';
+          setEffect(false);
           toast.success('Login Success', {
           position: toast.POSITION.TOP_CENTER
         });
@@ -34,7 +38,7 @@ const LoginPage = () => {
           setUser({email:"", password:""});  
         }
         else {
-            document.getElementById('signIn').classList.remove='animate-pulse';
+          setEffect(false);
           toast.error('Invalid email or password', {
           position: toast.POSITION.TOP_CENTER
         });
@@ -61,7 +65,7 @@ const LoginPage = () => {
                             <input type="password" id="password" className="bg-gray-100 py-3 px-6 rounded-full text-gray-600 w-full outline-blue-500 md:w-2/3" required placeholder="Password" name="password" value={user.password} onChange={onChangeHandler}/>
                         </div>
                         <div className="mt-3 md:mt-5 ml-20 md:ml-36 items-center">
-                            <button id="signIn" className="bg-green-600 hover:bg-green-700 py-2 px-8 md:px-10 outline-none rounded-full text-white text-bold items-center mb-12 md:mb-0" type="submit">Sign In</button>
+                            <button className="bg-green-600 h-12 w-36 hover:bg-green-700 py-2 px-8 md:px-10 outline-none rounded-full text-white text-bold items-center mb-12 md:mb-0 " type="submit">{effect?<div className="flex items-center justify-center "><Spinner/><span className="font-semibold text-lg" >Loading...</span></div>:<div className="font-semibold text-lg">Sign In</div>}</button>
                         </div>
                     </form>
                 </div>

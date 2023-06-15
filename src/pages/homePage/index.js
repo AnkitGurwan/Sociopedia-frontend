@@ -1,10 +1,10 @@
 import React from 'react'
 import HomePage from 'components/homePageComponent'
 
-function index() {
+const Index = () => {
   return (
     <HomePage/>
   )
 }
 
-export default index
+export default Index;

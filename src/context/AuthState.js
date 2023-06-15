@@ -116,7 +116,6 @@ const AuthState = (props) => {
             },
         });
         const json = await response.json();
-        console.log("111",json)
         dispatch(setFriends(json));
         return response.status;
     }

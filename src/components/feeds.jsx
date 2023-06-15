@@ -48,9 +48,9 @@ const Feeds = (
     }
 
   return (
-    <div className='h-fit rounded-lg my-6 mx-1'>
-        <div className={"rounded-lg "+(mode==='light'?"bg-gray-100 border-4":"bg-gray-800")}>
-            <div className='h-20 flex items-center px-5'>
+    <div className='rounded-t-lg md:rounded-t-xl mx-1 md:mx-0 my-6 border'>
+        <div className={"rounded-t-lg md:rounded-t-xl "+(mode==='light'?"bg-white":"bg-gray-800")}>
+            <div className='rounded-t-lg md:rounded-t-xl h-16 py-2 flex items-center px-5 bg-gray-50'>
                 <div className=''>
                     <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
@@ -67,11 +67,11 @@ const Feeds = (
                 </div>
             </div>
             <hr/>
-            <div className='h-3/4 px-4'>
+            <div className='h-3/4 px-4 py-1'>
                 <div className={"py-2 px-1 text-sm capitalize "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
                 <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-lg object-cover' alt='userimage' />
             </div>
-            <div className='px-4 py-2 flex items-center'>
+            <div className='px-4 py-1 flex items-center'>
                 <div className='flex items-center p-2 text-sm cursor-pointer ' onClick={likeHandler}>{liked?<div className='flex items-center'><span onClick={()=>setLiked(false)} class="material-symbols-outlined p-1 text-lg text-pink-600 ">favorite</span><span className=' text-pink-600'>{likeCount}</span></div>
                 :<div className='flex items-center'><span onClick={()=>setLiked(true)} class={"material-symbols-outlined p-1 text-lg text-gray-300 "+ (mode==='light'?"text-gray-800":"text-gray-300")}>favorite</span>
                 <span className={"text-gray-300 "+ (mode==='light'?"text-gray-800":"text-gray-300")}>{likeCount}</span></div>}
