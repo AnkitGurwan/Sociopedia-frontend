@@ -41,7 +41,7 @@ const HomePage = () => {
             
                 <div className={"col-span-1 w-2/5 md:w-1/3 pt-7 md:pt-20 fixed py-4 md:pr-4 h-full "+(mode==='light'?"bg-gray-200":"bg-gray-900")}>
                 {loading?
-                        <div class="w-4/5 md:w-4/5 ml-4 md:ml-16 mr-16 py-2 pr-2 md:pr-6 border my-4 md:my-12 border-blue-100 shadow rounded-lg z-10 bg-gray-100">
+                        <div class="w-4/5 md:w-4/5 ml-4 md:ml-16 mr-16 py-2 pr-2 md:pr-6 border my-4 md:my-6 border-blue-100 shadow rounded-lg z-10 bg-gray-100">
                             <div class="animate-pulse flex space-x-4 rounded-lg px-4 pt-1 pb-2">
                             <div class="rounded-full bg-slate-200 h-10 w-10"></div>
                             <div class="flex-1 space-y-6 py-2">
@@ -63,7 +63,7 @@ const HomePage = () => {
                     </div> }
                 </div>
             
-                <div className="col-span-2 md:col-span-1 pt-0 md:pt-20 h-full bg-gray-100 absolute right-0 md:right-1/3 md:px-0 w-3/5 md:w-1/3 ">
+                <div className="col-span-2 md:col-span-1 pt-0 md:pt-8 h-full bg-gray-100 absolute right-0 md:right-1/3 md:px-0 w-3/5 md:w-1/3 ">
                     
                     {loading?
                     <div class="w-full h-2/3 ml-2 mx-auto my-auto bg-gray-100 flex item-center justify-center">
@@ -73,7 +73,7 @@ const HomePage = () => {
                             <Spinner/>
                         </div>
                     </div>:
-                    <div className="w-full relative h-fit border-x pt-6 md:pt-8 border-gray-300 bg-gray-100">
+                    <div className="w-full relative h-fit border-x pt-6 md:pt-12 border-gray-300 bg-gray-100">
                         <AddPost/>
                         
                         {posts.map(
@@ -95,7 +95,7 @@ const HomePage = () => {
                     </div>}
                 </div>
                 
-                <div className="col-span-0 md:col-span-1 w-2/5 md:w-1/3 bg-gray-200 fixed top-2/3 md:top-16 right-3/5 md:right-0 h-full ">
+                <div className="col-span-0 md:col-span-1 w-2/5 md:w-1/3 bg-gray-200 fixed top-2/3 md:top-12 right-3/5 md:right-0 h-full ">
                 {loading?<div class="mr-4 md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
                     <div class="animate-pulse flex space-x-4">
                         <div class="rounded-full bg-slate-200 h-10 w-10"></div>

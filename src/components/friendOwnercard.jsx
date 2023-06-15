@@ -23,22 +23,22 @@ const Ownercard = () => {
     console.log("user",user)
 
     return (
-        <div className={" rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-2 "+(mode==='light'?"bg-gray-100 border":"bg-gray-800")}>
-            <div className='h-20 flex py-2 items-center w-full'>
+        <div className={" rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-2 md:px-4 py-2 "+(mode==='light'?"bg-gray-100 border":"bg-gray-800")}>
+            <div className='h-16 md:h-20 flex py-2 items-center w-full'>
                 <div className=''>
                 {loading?
-                    <div class="animate-pulse rounded-full bg-slate-200 h-12 w-12 my-auto">
+                    <div class="animate-pulse rounded-full bg-slate-200 h-10 w-10 my-auto">
                     </div>
                     :
                     <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-12 w-12' alt='user' />}
                 </div>
-                <div className='w-52 md:w-60 pl-4 pr-1'>
+                <div className='w-32 md:w-60 pl-2 md:pl-4 pr-1'>
                 {loading?
                     <div class="animate-pulse mb-2 px-2 w-3/4  my-auto">
                         <div class="h-2 bg-slate-200 rounded"></div>   
                     </div>
                     :
-                    <div className={"font-bold text-md "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}
+                    <div className={"font-bold text-sm md:text-md "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}
                     </div>}
                     {loading?
                     <div class="animate-pulse mb-2 px-2 w-3/4  my-auto">
@@ -57,7 +57,7 @@ const Ownercard = () => {
                         <div class="h-2 bg-slate-200 rounded"></div>   
                     </div>
                     :
-                    <div className='text-sm text-gray-500 px-2 mb-1'>{user.location}</div>}
+                    <div className='text-xs md:text-sm text-gray-500 px-2 mb-1'>{user.location}</div>}
                 </div>
                 <div className='flex items-center h-1/2 my-1'>
                     <div><span class="material-symbols-outlined text-sm px-1 text-gray-500">work</span></div>
@@ -66,12 +66,12 @@ const Ownercard = () => {
                         <div class="h-2 bg-slate-200 rounded"></div>   
                     </div>
                     :
-                    <div className='text-sm text-gray-500 px-2 mb-1'>{user.occupation}</div>}
+                    <div className='text-xs md:text-sm text-gray-500 px-2 mb-1'>{user.occupation}</div>}
                 </div>
             </div>
             <hr/>
-            <div className='h-24 py-6 px-3'>
-                <div className='flex items-center h-1/2 text-xs justify-between'>
+            <div className='h-24 py-3 px-3'>
+                <div className='flex items-center h-1/2 text-xs justify-between pb-2 md:pb-0'>
                     <div className='text-gray-500'>Who's viewed your profile.</div>
                     {loading?
                     <div class="animate-pulse mb-2 px-2 w-10  my-auto">
@@ -80,8 +80,8 @@ const Ownercard = () => {
                     :
                     <div className='text-gray-600'>{user.viewedProfile}</div>}
                 </div>
-                <div className='flex items-center h-1/2 text-xs justify-between'>
-                    <div className='text-gray-500'>Impressions of your post</div>
+                <div className='flex items-center h-1/2 text-xs justify-between '>
+                    <div className='text-gray-500 '>Impressions of your post</div>
                     {loading?
                     <div class="animate-pulse mb-2 px-2 w-10  my-auto">
                         <div class="h-2 bg-slate-200 rounded"></div>   

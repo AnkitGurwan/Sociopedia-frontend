@@ -25,10 +25,10 @@ const Friendlist = () => {
     },[]
     );
       return (
-        <div className='mt-6 mx-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
+        <div className='mt-16 md:mt-6 mx-1 md:mx-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
           <div className={"rounded-md p-2 "+ (mode==='light'?"bg-gray-50 border":"bg-gray-800")}>
-              <div className={"font-bold text-lg p-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
-              <div className='p-2'>
+              <div className={"font-bold text-lg py-2 px-1 md:px-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
+              <div className='py-2 px-1 md:px-2'>
               {length?friends.map((friend,i) => (
                 <Friend
                   key={i}

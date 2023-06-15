@@ -54,7 +54,7 @@ const Friendslistcard =  ( props ) => {
                 <div className='text-muted text-gray-500 text-xs'>{friend.occupation}</div>}
             </div>
             <div className='ml-1 md:ml-3' onClick={friendhandler}>
-                <span class="material-symbols-outlined text-blue-600 text-lg md:text-sm bg-blue-300 h-5 md:h-5 w-5 md:w-7 flex items-center justify-center rounded-full hover:bg-blue-200 cursor-pointer">
+                <span class="material-symbols-outlined text-blue-600 text-sm md:text-sm bg-blue-300 h-6 md:h-7 w-6 md:w-7 flex items-center justify-center rounded-full hover:bg-blue-200 cursor-pointer">
                     group_add
                 </span>
             </div>
