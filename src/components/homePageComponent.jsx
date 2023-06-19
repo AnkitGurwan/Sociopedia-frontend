@@ -2,7 +2,7 @@ import React, { useEffect ,useContext, useState } from "react";
 import Ownercard from "components/ownercard";
 import Friendlist from "components/friendlist"
 import Feeds from "components/feeds"
-import Navbar from "components/navbar";
+import Navbar from "components/homeNavbar";
 import AuthContext from "context/AuthContext.js";
 
 import { useNavigate } from "react-router-dom";
@@ -32,9 +32,7 @@ const HomePage = () => {
       },[])
 
     return (
-        <div className="h-full w-full">
-            <Navbar/>
-            
+        <div className="h-full w-full">            
             <div className="h-full w-full grid grid-cols-3 absolute top-16 md:top-0">
             
             {/* <div class="w-full flex item-center justify-center"> */}
@@ -63,7 +61,7 @@ const HomePage = () => {
                     </div> }
                 </div>
             
-                <div className="col-span-2 md:col-span-1 pt-0 md:pt-8 h-full bg-gray-100 absolute right-0 md:right-1/3 md:px-0 w-3/5 md:w-1/3 ">
+                <div className="col-span-2 md:col-span-1 pt-0 md:pt-8 h-full bg-gray-100 absolute top-1 right-0 md:right-1/3 md:px-0 w-3/5 md:w-1/3 ">
                     
                     {loading?
                     <div class="w-full h-2/3 ml-2 mx-auto my-auto bg-gray-100 flex item-center justify-center">

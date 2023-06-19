@@ -134,7 +134,19 @@ const AuthState = (props) => {
         return response.status;
     }
 
-return (<AuthContext.Provider value={{ Login ,specificProjects,specificDetails, registerUser,getUserDetails,getUserPosts ,createPost ,getPosts ,addRemoveFriend , getFriends , likePost}}>
+    const deletePost = async (id,userId) => {
+        
+        const response = await fetch(`${url}/posts/${id}/delete`, {
+            method: 'GET',
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+        const json = await response.json();
+        return response.status;
+    }
+
+return (<AuthContext.Provider value={{ Login ,specificProjects,specificDetails, registerUser,getUserDetails,getUserPosts ,createPost ,getPosts ,addRemoveFriend , getFriends , likePost , deletePost}}>
     {props.children}
 </AuthContext.Provider>
 )

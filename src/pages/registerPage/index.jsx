@@ -107,7 +107,7 @@ const RegisterPage = () => {
                     </div>
 
                     <div className='mb-2'>
-                        <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer" type="submit" value="Register">{effect?<div className="flex items-center justify-center "><Spinner/><span className="font-semibold text-lg mx-2" >Loading...</span></div>:<div className="font-semibold text-lg">Register</div>}</button>
+                        <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer" type="submit" value="Register">{effect?<div className="flex items-center justify-center "><Spinner/><span className="font-semibold text-lg mx-4" >Loading...</span></div>:<div className="font-semibold text-lg">Register</div>}</button>
                     </div>
                     <div className='pt-2 pl-1'>
                         <Link to={`/`} className='text-blue-700 no-underline hover:underline'>Already have an account?</Link>

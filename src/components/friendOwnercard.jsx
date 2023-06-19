@@ -27,18 +27,18 @@ const Ownercard = () => {
             <div className='h-16 md:h-20 flex py-2 items-center w-full'>
                 <div className=''>
                 {loading?
-                    <div class="animate-pulse rounded-full bg-slate-200 h-10 w-10 my-auto">
+                    <div class="animate-pulse rounded-full bg-slate-200 h-16 w-16 my-auto">
                     </div>
                     :
-                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-12 w-12' alt='user' />}
+                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-12 md:h-16 w-12 md:w-16' alt='user' />}
                 </div>
-                <div className='w-32 md:w-60 pl-2 md:pl-4 pr-1'>
+                <div className='w-32 md:w-52 pl-2 md:pl-6 pr-1'>
                 {loading?
                     <div class="animate-pulse mb-2 px-2 w-3/4  my-auto">
                         <div class="h-2 bg-slate-200 rounded"></div>   
                     </div>
                     :
-                    <div className={"font-bold text-sm md:text-md "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}
+                    <div className={"font-bold text-sm md:text-md capitalize "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}
                     </div>}
                     {loading?
                     <div class="animate-pulse mb-2 px-2 w-3/4  my-auto">

@@ -65,7 +65,7 @@ const LoginPage = () => {
                             <input type="password" id="password" className="bg-gray-100 py-3 px-6 rounded-full text-gray-600 w-full outline-blue-500 md:w-2/3" required placeholder="Password" name="password" value={user.password} onChange={onChangeHandler}/>
                         </div>
                         <div className="mt-3 md:mt-5 ml-20 md:ml-36 items-center">
-                            <button className="bg-green-600 h-12 w-36 hover:bg-green-700 py-2 px-8 md:px-10 outline-none rounded-full text-white text-bold items-center mb-12 md:mb-0 " type="submit">{effect?<div className="flex items-center justify-center "><Spinner/><span className="font-semibold text-lg" >Loading...</span></div>:<div className="font-semibold text-lg">Sign In</div>}</button>
+                            <button className="bg-green-600 h-12 w-36 hover:bg-green-700 py-2 px-8 md:px-10 outline-none rounded-full text-white text-bold items-center mb-12 md:mb-0 " type="submit">{effect?<div className="flex items-center justify-center "><Spinner/><span className="ml-2 font-semibold text-lg" >Loading...</span></div>:<div className="font-semibold text-lg">Sign In</div>}</button>
                         </div>
                     </form>
                 </div>

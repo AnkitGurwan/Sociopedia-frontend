@@ -10,7 +10,7 @@ const Ownercard = () => {
         <div className={"rounded-lg mx-1 md:mx-0 px-1 md:px-4 pt-1 pb-2 "+(mode==='light'?"bg-white":"bg-gray-800")}>
             <div className='h-20 md:h-24 flex py-1 items-center px-2'>
                 <div className=''>
-                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-9 md:h-12 w-9 md:w-12 mr-2' alt='user' />
+                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${user.picturePath}`} className='rounded-full object-cover h-9 md:h-16 w-9 md:w-16 mr-2' alt='user' />
                 </div>
                 <div className='w-24 md:w-48 pl-2 md:pl-4 pr-0 md:pr-1'>
                     <div className={"font-semibold text-gray-700 text-sm md:text-lg capitalize "+(mode==='light'?"":"text-gray-300")}>{`${user.firstName} ${user.lastName}`}</div>

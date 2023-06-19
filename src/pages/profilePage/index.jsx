@@ -1,9 +1,14 @@
 import React from 'react'
-import ProfilePage from 'components/profilePageComponent'
+import ProfilePage from 'components/profilePageComponent';
+import Navbar from 'components/profilePageNavbar'
 
 const Index = () => {
   return (
-    <ProfilePage/>
+    <div>
+      <Navbar/>
+      <ProfilePage/>
+    </div>
+    
   )
 }
 

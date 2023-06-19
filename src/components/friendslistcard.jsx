@@ -2,6 +2,7 @@ import React , { useContext ,useState ,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AuthContext from 'context/AuthContext';
 import { useSelector } from "react-redux";
+import Spinner from './spinner';
 
 const Friendslistcard =  ( props ) => {
    
@@ -12,6 +13,7 @@ const Friendslistcard =  ( props ) => {
         const mode = useSelector((state) => state.mode);
         const user = useSelector((state) => state.user);
         const [loading,setLoading] = useState(true);
+        const [friendListSpinner,setFriendListSpinner] = useState(false);
 
         useEffect(()=>{
             {
@@ -20,8 +22,17 @@ const Friendslistcard =  ( props ) => {
           },[])
 
         const friendhandler = async () => {
-            await addRemoveFriend(user._id,friend._id);
-            await getFriends(user._id); 
+            setFriendListSpinner(true);
+            const x=await addRemoveFriend(user._id,friend._id);
+            if(x===200)
+            {
+                const y=await getFriends(user._id); 
+                if(y===200)
+                {
+                    setFriendListSpinner(false);
+                }
+            }
+            
         }
 
         return (
@@ -53,11 +64,13 @@ const Friendslistcard =  ( props ) => {
                 :
                 <div className='text-muted text-gray-500 text-xs'>{friend.occupation}</div>}
             </div>
-            <div className='ml-1 md:ml-3' onClick={friendhandler}>
-                <span class="material-symbols-outlined text-blue-600 text-sm md:text-sm bg-blue-300 h-6 md:h-7 w-6 md:w-7 flex items-center justify-center rounded-full hover:bg-blue-200 cursor-pointer">
-                    group_add
+            {friendListSpinner?<div className='mt-1 ml-1 md:ml-3'><Spinner/></div>
+            :
+            <div className='mt-1 ml-1 md:ml-3' onClick={friendhandler}>
+                <span class="material-symbols-outlined bg-green-400 text-white text-lg md:text-s h-6 w-6 flex items-center justify-center rounded-full hover:bg-red-500 cursor-pointer">
+                    done
                 </span>
-            </div>
+            </div>}
         </div>
   )
 }
