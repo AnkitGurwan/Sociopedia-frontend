@@ -7,12 +7,11 @@ import Spinner from './spinner';
 const Friendslistcard =  ( props ) => {
    
         const {friend} =props;
-        console.log("props",props)
-        const navigate = useNavigate();
         const { addRemoveFriend, getFriends } = useContext(AuthContext);
         const mode = useSelector((state) => state.mode);
         const user = useSelector((state) => state.user);
-        const [loading,setLoading] = useState(true);
+        const [loading,setLoading] = useState(false);
+        
         const [friendListSpinner,setFriendListSpinner] = useState(false);
 
         useEffect(()=>{
@@ -24,33 +23,25 @@ const Friendslistcard =  ( props ) => {
         const friendhandler = async () => {
             setFriendListSpinner(true);
             const x=await addRemoveFriend(user._id,friend._id);
-            if(x===200)
+            if(x === 200)
             {
-                const y=await getFriends(user._id); 
-                if(y===200)
-                {
-                    setFriendListSpinner(false);
-                }
+                setFriendListSpinner(false);
             }
-            
         }
 
         return (
         
-        <div className='flex px-0 md:px-1' 
+        <div className='flex py-2 md:py-3 px-1 md:px-3 items-center border' 
             >
-            <div className='cursor-pointer' onClick={() => {
-            navigate(`/profile/${friend._id}`);
-          }}>
+            <div className='cursor-pointer'>
             {loading?
                     <div class="animate-pulse rounded-full bg-slate-200 h-10 w-10 my-auto">
                     </div>
                     :
-                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${friend.picturePath}`} className='rounded-full object-cover h-8 md:h-12 w-8 md:w-12' alt='user' />}
+                <img src={friend.picturePath} className='rounded-full object-cover h-8 md:h-10 w-8 md:w-10' alt='user' />}
             </div>
-            <div className='w-20 md:w-48 pl-2 md:pl-4 pr-1 cursor-pointer' onClick={() => {
-            navigate(`/profile/${friend._id}`);
-          }}>
+            
+            <div className='w-20 md:w-44 pl-2 md:pl-4 pr-1'>
             {loading?
                     <div class="animate-pulse mb-2 px-2 w-3/4  my-auto">
                         <div class="h-2 bg-slate-200 rounded"></div>   
@@ -64,13 +55,14 @@ const Friendslistcard =  ( props ) => {
                 :
                 <div className='text-muted text-gray-500 text-xs'>{friend.occupation}</div>}
             </div>
-            {friendListSpinner?<div className='mt-1 ml-1 md:ml-3'><Spinner/></div>
+            {friend._id != user._id?
+            friendListSpinner?<div className='mt-1 ml-1 md:ml-3'><Spinner/></div>
             :
             <div className='mt-1 ml-1 md:ml-3' onClick={friendhandler}>
-                <span class="material-symbols-outlined bg-green-400 text-white text-lg md:text-s h-6 w-6 flex items-center justify-center rounded-full hover:bg-red-500 cursor-pointer">
+                <span class="material-symbols-outlined bg-green-400 text-white text-lg h-6 w-6 flex items-center justify-center rounded-full hover:bg-red-500 cursor-pointer">
                     done
                 </span>
-            </div>}
+            </div>:<div className='text-sm flex ml-1 md:ml-3'>me</div>}
         </div>
   )
 }

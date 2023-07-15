@@ -1,7 +1,7 @@
-import React , {useContext , useEffect, useState} from 'react';
+import React , {useContext , useEffect} from 'react';
 import { useSelector } from "react-redux";
 import AuthContext from 'context/AuthContext';
-import Friend from './friendslistcard';
+import Friend from './friendlistcardother';
 import { useParams } from 'react-router-dom';
 
 
@@ -25,16 +25,16 @@ const Friendlist = () => {
     },[]
     );
       return (
-        <div className='mt-16 md:mt-6 mx-1 md:mx-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
+        <div className=' rounded-md mt-16 md:mt-4 mx-1 md:mx-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
           <div className={"rounded-md p-2 "+ (mode==='light'?"bg-gray-50 border":"bg-gray-800")}>
-              <div className={"font-bold text-lg py-2 px-1 md:px-2 "+(mode==='light'?"text-black":"text-gray-300")}>Friend's List :</div>
-              <div className='py-2 px-1 md:px-2'>
+              <div className=" rounded-t-md font-bold text-lg py-2 px-1 md:px-2 bg-gray-200 border border-gray-300">Friend's List :</div>
+              <div className='overflow-y-scroll'>
               {length?friends.map((friend,i) => (
                 <Friend
                   key={i}
                   friend={friend}
                 />
-              )):<div className='text-sm w-full h-12 bg-gray-100 flex justify-center items-center rounded'>No friends yet</div>
+              )):<div className="text-sm w-full h-12 flex justify-center items-center rounded bg-gray-200">No friends yet</div>
               }
               </div>
           </div>

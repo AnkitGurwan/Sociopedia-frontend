@@ -7,8 +7,9 @@ import { setFriends, setLogin , setPosts } from "state";
 const AuthState = (props) => {
 
     const url = "https://sociopedia-backend-3olo.onrender.com";
+    // const url = "http://localhost:5000";
     const dispatch = useDispatch();
-    const [specificProjects,setSpecificProjects]=useState([]);
+    const [specificPosts,setSpecificPosts]=useState([]);
     const [specificDetails,setSpecificDetails]=useState([]);
 
 
@@ -26,31 +27,36 @@ const AuthState = (props) => {
         return response.status;
     }
 
-    const registerUser = async ( formvalue) => {
+    const registerUser = async ( firstName,lastName,location,occupation,
+        email,password,picturePath) => {
         const response = await fetch(`${url}/auth/register`, {
             method: 'POST',
-            
-            body: formvalue,
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({firstName,lastName,location,occupation,
+                email,password,picturePath})
         });
         
-        const json = await response.json();
         return response.status;
     }
 
-    const createPost = async ( formvalue) => {
+    const createPost = async ( userId , description , picturePath) => {
         const response = await fetch(`${url}/posts`, {
-            method: 'POST',
-            // header:{
-            //     'Authorization':localStorage.getItem('token')
-            // },
-            body: formvalue,
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({userId,description,picturePath})
         });
-        
+
         const json = await response.json();
+        
+        dispatch(setPosts(json.reverse()))
         return response.status;
     }
 
-    const getPosts = async (id,friendId) => {
+    const getPosts = async () => {
         
         const response = await fetch(`${url}/posts/all`, {
             method: 'GET',
@@ -75,7 +81,7 @@ const AuthState = (props) => {
         });
         
         const json = await response.json();
-        setSpecificProjects(json.reverse());
+        setSpecificPosts(json.reverse());
         return response.status;
     }
 
@@ -102,7 +108,6 @@ const AuthState = (props) => {
             },
         });
         
-        const json = await response.json();
         
         return response.status;
     }
@@ -129,12 +134,11 @@ const AuthState = (props) => {
             },
             body:JSON.stringify({userId})
         });
-        const json = await response.json();
         
         return response.status;
     }
 
-    const deletePost = async (id,userId) => {
+    const deletePost = async (id) => {
         
         const response = await fetch(`${url}/posts/${id}/delete`, {
             method: 'GET',
@@ -142,11 +146,10 @@ const AuthState = (props) => {
                 "Content-Type":"application/json"
             }
         });
-        const json = await response.json();
         return response.status;
     }
 
-return (<AuthContext.Provider value={{ Login ,specificProjects,specificDetails, registerUser,getUserDetails,getUserPosts ,createPost ,getPosts ,addRemoveFriend , getFriends , likePost , deletePost}}>
+return (<AuthContext.Provider value={{ Login ,specificPosts,specificDetails , registerUser,getUserDetails,getUserPosts ,createPost ,getPosts ,addRemoveFriend , getFriends , likePost , deletePost}}>
     {props.children}
 </AuthContext.Provider>
 )

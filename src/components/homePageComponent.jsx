@@ -1,6 +1,6 @@
 import React, { useEffect ,useContext, useState } from "react";
 import Ownercard from "components/ownercard";
-import Friendlist from "components/friendlist"
+import Friendlist from "components/friendlistowner"
 import Feeds from "components/feeds"
 import Navbar from "components/homeNavbar";
 import AuthContext from "context/AuthContext.js";
@@ -9,15 +9,12 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AddPost from "components/addpost";
 import Spinner from "./bigSpinner";
+import Lottie from "./lottie";
+import postAdd from './addpost';
 
 const HomePage = () => {
-    const Navigate = useNavigate();
     const { getPosts } = useContext(AuthContext);
-    const user = useSelector((state) => state.user);
-    const mode = useSelector((state) => state.mode);
     const [loading,setLoading] = useState(true);
-    
-    
     const posts = useSelector((state) => state.posts);
 
     const getItem=async ()=>{        
@@ -29,15 +26,13 @@ const HomePage = () => {
         {
             getItem();
         }
-      },[])
+      },[postAdd])
 
     return (
         <div className="h-full w-full">            
             <div className="h-full w-full grid grid-cols-3 absolute top-16 md:top-0">
             
-            {/* <div class="w-full flex item-center justify-center"> */}
-            
-                <div className={"col-span-1 w-2/5 md:w-1/3 pt-7 md:pt-20 fixed py-4 md:pr-4 h-full "+(mode==='light'?"bg-gray-200":"bg-gray-900")}>
+                <div className="col-span-1 w-2/5 md:w-1/3 pt-7 md:pt-20 fixed py-4 md:pr-4 h-full bg-gray-200">
                 {loading?
                         <div class="w-4/5 md:w-4/5 ml-4 md:ml-16 mr-16 py-2 pr-2 md:pr-6 border my-4 md:my-6 border-blue-100 shadow rounded-lg z-10 bg-gray-100">
                             <div class="animate-pulse flex space-x-4 rounded-lg px-4 pt-1 pb-2">
@@ -73,8 +68,8 @@ const HomePage = () => {
                     </div>:
                     <div className="w-full relative h-fit border-x pt-6 md:pt-12 border-gray-300 bg-gray-100">
                         <AddPost/>
-                        
-                        {posts.map(
+                        {posts.length===0?<div className="mt-1 mx-2"><Lottie/></div>:
+                        posts.map(
                         (post,i) => (
                         <Feeds
                             key={i}
@@ -93,7 +88,7 @@ const HomePage = () => {
                     </div>}
                 </div>
                 
-                <div className="col-span-0 md:col-span-1 w-2/5 md:w-1/3 bg-gray-200 fixed top-2/3 md:top-12 right-3/5 md:right-0 h-full ">
+                <div className="col-span-0 md:col-span-1 w-2/5 md:w-1/3 bg-gray-200 fixed top-2/3 md:top-12 right-3/5 md:right-0 h-full">
                 {loading?<div class="mr-4 md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
                     <div class="animate-pulse flex space-x-4">
                         <div class="rounded-full bg-slate-200 h-10 w-10"></div>
@@ -111,7 +106,9 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>:
-                    <Friendlist/>}
+                <div className="mt-8 mx-0 md:mx-12 h-full">
+                    <Friendlist/>
+                </div>}
                 </div>
         </div>
             

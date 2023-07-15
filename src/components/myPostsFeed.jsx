@@ -1,5 +1,7 @@
 import React , {useContext ,useEffect , useState} from 'react'
 import AuthContext from 'context/AuthContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import Spinner from './spinner';
@@ -46,10 +48,6 @@ const Feeds = (
         if(x)x.map((id)=>{if(id===user._id)setLiked(true);})
     }
 
-    const friendhandler = async () => {
-        await addRemoveFriend(user._id,postUserId);
-        await getFriends(user._id); 
-    }
     const likeHandler = async () => {
         await likePost(postId,user._id);
         await getUserPosts(id); 
@@ -58,7 +56,16 @@ const Feeds = (
 
     const deletehandler = async () => {
         setDeleteSpinner(true);
-        deletePost(postId);
+        const x=await deletePost(postId);
+
+
+        if(x===200)
+        {
+            setDeleteSpinner(false);
+            toast.success('Deleted Successfully.', {
+                position: toast.POSITION.TOP_RIGHT
+              });
+        }
         await getUserPosts(id); 
     }
 
@@ -67,11 +74,11 @@ const Feeds = (
         <div className={"rounded-sm "+(mode==='light'?" ":"bg-gray-800")}>
             <div className='h-16 flex items-center px-6 rounded-t-lg bg-gray-100'>
                 <div className=''>
-                    <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${userPicturePath}`} className='rounded-full object-cover h-10 w-10' alt='user' />
+                    <img src={userPicturePath} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
                 <div className='w-72 md:w-80 pl-4 '>
                     <div className={"font-bold text-sm "+(mode==='light'?"text-black":"text-gray-300")}>{name}</div>
-                    <div className='text-muted text-gray-500 text-xs'>{location}</div>
+                    <div className='text-muted text-gray-500 text-xs capitalize'>{location}</div>
                 </div>
                 {deleteSpinner?<div className='mt-1 ml-1 md:ml-3'><Spinner/></div>:
                 <div className='ml-3 cursor-pointer hover:text-blue-900' onClick={deletehandler}>
@@ -83,7 +90,7 @@ const Feeds = (
             <hr/>
             <div className='h-3/4 px-4 pt-2 bg-white'>
                 <div className={"pt-1 px-1 capitalize pb-2 text-sm "+(mode==='light'?"text-black":"text-gray-400")}>{description}</div>
-                <img src={`https://sociopedia-backend-3olo.onrender.com/assets/${picturePath}`} className='rounded-md object-cover' alt='userimage' />
+                <img src={picturePath} className='rounded-md object-cover max-h-72 w-full' alt='userimage' />
             </div>
             <div className='px-4 py-1 flex items-center bg-white'>
 

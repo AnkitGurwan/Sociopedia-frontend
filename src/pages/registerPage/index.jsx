@@ -10,6 +10,7 @@ const RegisterPage = () => {
     const Navigate = useNavigate();
     const [formValue, setFormValue] = useState();
     const [effect, setEffect] = useState(false);
+    const [postUrl,setPostUrl] = useState("");
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -22,18 +23,10 @@ const RegisterPage = () => {
     
     const imageHandler = async (event) => {
         setFormValue(event.target.files[0]);
-        user.picturePath=event.target.files[0].name;
     }
 
         const formdata = new FormData();
-        formdata.append('firstName',user.firstName);
-        formdata.append('lastName',user.lastName);
-        formdata.append('location',user.location);
-        formdata.append('occupation',user.occupation);
-        formdata.append('email',user.email);
-        formdata.append('password',user.password);
-        formdata.append('picturePath',user.picturePath);
-        formdata.append('picture',formValue);
+        formdata.append('file',formValue);
         
     
 
@@ -42,10 +35,23 @@ const RegisterPage = () => {
     }
 
     const loginSubmitHandler = async (event) => {
-        setEffect(true);
         event.preventDefault();
-        // const picturepathtosend=user.picture.replace(/^.*\\/, "");
-        const x = await registerUser(formdata)
+        setEffect(true);
+        
+        const formdata = new FormData();
+        formdata.append("file",formValue);
+        formdata.append("upload_preset","ankitdemo");
+        formdata.append("cloud_name","dyufvjigd");
+
+        const x = await fetch(`https://api.cloudinary.com/v1_1/dyufvjigd/image/upload`, {
+          method: 'POST',
+          body: formdata,
+        }).then((res)=>res.json()).then((data)=>
+        {
+            return registerUser(user.firstName,user.lastName,user.location,user.occupation,
+                user.email,user.password,data.url);
+        });
+
     
         if(x === 201){
           setEffect(false);

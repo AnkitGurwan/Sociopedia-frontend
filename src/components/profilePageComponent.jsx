@@ -1,6 +1,6 @@
 import React , { useEffect ,useContext, useState } from "react";
 import Ownercard from "components/friendOwnercard";
-import Friendlist from "components/friendFriends"
+import Friendlist from "components/friendlistother"
 import Feeds from "components/friendsFeed"
 import Navbar from "components/homeNavbar";
 import AuthContext from "context/AuthContext.js";
@@ -9,9 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Spinner from "components/bigSpinner";
+import Lottie from "./lottie";
 
 const ProfilePage = () => {
-    const { getUserPosts , specificProjects } = useContext(AuthContext);
+    const { getUserPosts , specificPosts } = useContext(AuthContext);
     const mode = useSelector((state) => state.mode);
     const [loading,setLoading] = useState(true);
   
@@ -52,7 +53,8 @@ const ProfilePage = () => {
                         </div>
                     </div>:
                     <div className="border-x border-gray-300 pt-16 pb-1 pl-1 md:pl-0 pr-1 md:pr-0">
-                    {specificProjects.map(
+                    {specificPosts.length === 0?<div className="mt-20"><Lottie/></div>:
+                    specificPosts.map(
                     (post,i) => (
                     <Feeds
                         key={i}
