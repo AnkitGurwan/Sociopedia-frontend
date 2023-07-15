@@ -76,7 +76,7 @@ const Feeds = (
                 <div className=''>
                     <img src={userPicturePath} className='rounded-full object-cover h-10 w-10' alt='user' />
                 </div>
-                <div className='w-72 md:w-80 pl-4 '>
+                <div className='w-32 md:w-80 pl-2 md:pl-4 '>
                     <div className={"font-bold text-sm "+(mode==='light'?"text-black":"text-gray-300")}>{name}</div>
                     <div className='text-muted text-gray-500 text-xs capitalize'>{location}</div>
                 </div>
