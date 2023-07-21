@@ -1,4 +1,4 @@
-import React , { useContext, useState } from "react";
+import React , { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "context/AuthContext.js";
 import { toast } from 'react-toastify';
@@ -7,13 +7,20 @@ import Spinner from "components/spinner";
 
 
 const LoginPage = () => {
-    const { Login } = useContext(AuthContext);
+    const { Login , getPosts} = useContext(AuthContext);
     const Navigate = useNavigate();
     const [effect, setEffect] = useState(false);
     const [user, setUser] = useState({
         email: "",
         password: ""
     });
+
+    const getItem = async ()=>{        
+        await getPosts(); 
+    };
+    useEffect(()=>{
+        getItem();
+      },[])
 
     const onChangeHandler = (event) => {
         setUser({ ...user, [event.target.name]: event.target.value });
