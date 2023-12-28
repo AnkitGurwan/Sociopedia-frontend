@@ -82,16 +82,30 @@ const AddPost = () => {
                 <img src={user.picturePath} className='h-10 md:h-12 w-10 md:w-12 rounded-full mr-2 object-cover' alt='' />
                 <input type='text' className={"mx-1 w-full border rounded-full my-auto h-9 text-xs pl-1 md:pl-4 text-start focus:outline-none "+ (mode==='light'?"bg-gray-100":"bg-gray-700")} name='description' id='description' required value={post.description} onChange={onChangeHandler} placeholder='What is in your mind ...'/>
               </div>
-              {mode==='light'?<hr/>:""}
-              {showImage?<div className={"w-full py-2 px-0 md:px-4 "+ (mode==='light'?"bg-white":"bg-gray-700")}>
-                <input className={"w-full "+(mode==='light'?"text-black bg-white":"text-gray-400 bg-gray-700")} type='file' id='picture' name='picture' required onChange={imageHandler}/>
-              </div>:""}
+              <hr/>
+              {showImage?
+              <div className={"w-full py-2 px-0 md:px-4 "+ (mode==='light'?"bg-white":"bg-gray-700")}>
+                <input className="p-1 md:p-0 w-full text-black bg-white" type='file' id='picture' name='picture' required onChange={imageHandler}/>
+              </div>
+              :
+              ""
+              }
+              <hr/>
               <div className='py-3 px-1 md:px-8 flex justify-between items-center'>
-                    <div className={"text-xs md:text-sm p-1 rounded-md flex items-center cursor-pointer "+(mode==='light'?"text-black hover:bg-gray-200":"text-gray-400 hover:-bg-gray-700")} onClick={()=>{showImage?setShowImage(false):setShowImage(true)}}><span class="material-symbols-outlined px-1 text-xs lg:text-lg ">image</span>
-                        <span>Image</span>
-                    </div>            
-                    {showImage?postAdd?<div className='mr-4'><Spinner/></div>:<button type='submit' className='bg-blue-400 hover:bg-blue-500 text-gray-700  px-2 md:px-3 py-1 rounded-full text-xs lg:text-sm'>Post</button>:
-                    ""}
+                  <div className={"text-xs md:text-sm p-1 rounded-md flex items-center cursor-pointer "+(mode==='light'?"text-black hover:bg-gray-200":"text-gray-400 hover:-bg-gray-700")} onClick={()=>{showImage?setShowImage(false):setShowImage(true)}}><span class="material-symbols-outlined px-1 text-xs lg:text-lg ">image</span>
+                      <span>Image</span>
+                  </div>            
+                  {
+                  showImage
+                  ?
+                  postAdd
+                  ?
+                  <div className='mr-4'>
+                    <Spinner/>
+                  </div>
+                  :
+                  <button type='submit' className='bg-blue-400 hover:bg-blue-500 text-gray-700  px-2 md:px-3 py-1 rounded-full text-xs lg:text-sm'>Post</button>:
+                  ""}
               </div>
           </form>
         </div>

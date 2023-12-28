@@ -1,6 +1,6 @@
 import React, { useEffect ,useContext, useState } from "react";
 import Ownercard from "components/ownercard";
-import Friendlist from "components/friendlistowner"
+import Friendlist from "components/ownerFriendsList"
 import Feeds from "components/feeds"
 import Navbar from "components/homeNavbar";
 import AuthContext from "context/AuthContext.js";
@@ -88,8 +88,10 @@ const HomePage = () => {
                     </div>}
                 </div>
                 
-                <div className="col-span-0 md:col-span-1 w-2/5 md:w-1/3 bg-gray-200 fixed top-2/3 md:top-12 right-3/5 md:right-0 h-full">
-                {loading?<div class="mr-4 md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
+                <div className="col-span-0 md:col-span-1 h-full w-2/5 md:w-1/3 bg-gray-200 fixed top-1/2 md:top-12 right-3/5 md:right-0 px-1">
+                {loading
+                ?
+                <div class="mr-4 md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
                     <div class="animate-pulse flex space-x-4">
                         <div class="rounded-full bg-slate-200 h-10 w-10"></div>
                         <div class="flex-1 space-y-6 py-1">
@@ -106,7 +108,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>:
-                <div className="mt-8 mx-0 md:mx-12 h-full">
+                <div className="mt-8 mx-0 md:mx-12 h-72 md:h-3/4 overflow-y-scroll">
                     <Friendlist/>
                 </div>}
                 </div>

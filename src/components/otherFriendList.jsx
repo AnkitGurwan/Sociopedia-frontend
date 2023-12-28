@@ -1,7 +1,7 @@
 import React , {useContext , useEffect} from 'react';
 import { useSelector } from "react-redux";
 import AuthContext from 'context/AuthContext';
-import Friend from './friendlistcardother';
+import Friend from './otherFriendListCard';
 import { useParams } from 'react-router-dom';
 
 
@@ -25,8 +25,8 @@ const Friendlist = () => {
     },[]
     );
       return (
-        <div className=' rounded-md mt-16 md:mt-4 mx-1 md:mx-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
-          <div className={"rounded-md p-2 "+ (mode==='light'?"bg-gray-50 border":"bg-gray-800")}>
+        <div className=' rounded-md mx-1 md:mx-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
+          <div className="rounded-md p-2 bg-gray-50 border">
               <div className=" rounded-t-md font-bold text-lg py-2 px-1 md:px-2 bg-gray-200 border border-gray-300">Friend's List :</div>
               <div className='overflow-y-scroll'>
               {length?friends.map((friend,i) => (
