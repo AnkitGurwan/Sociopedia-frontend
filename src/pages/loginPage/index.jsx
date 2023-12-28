@@ -70,7 +70,7 @@ const LoginPage = () => {
                 <input type="password" id="password" className="bg-gray-100 py-3 px-6 rounded-full text-gray-600 w-full outline-blue-500 md:w-2/3" required placeholder="Password" name="password" value={user.password} onChange={onChangeHandler} />
               </div>
               <div className="mt-3 md:mt-5 ml-[25%] md:ml-36">
-                <button className="bg-green-600 h-10 w-36 hover:bg-green-700 py-1 px-6 md:px-6 outline-none rounded text-white text-bold items-center mb-12 md:mb-0 " type="submit">
+                <button className="bg-green-600 h-10 w-32 md:w-36 hover:bg-green-700 py-1 px-6 md:px-6 outline-none rounded text-white text-bold items-center mb-12 md:mb-0 " type="submit">
                   {effect ? (
                     <div className="flex items-center justify-center ">
                       <Spinner /><span className="ml-2 font-semibold text-lg" >Loading...</span>
@@ -87,8 +87,8 @@ const LoginPage = () => {
         {/* Rightside */}
         <div className="w-full md:w-1/3 h-1/4 md:h-full my-0 bg-green-600 flex items-center justify-center">
           <div className="">
-            <div className="text-3xl md:text-4xl text-white font-bold py-1">👋New Here?</div>
-            <div className="text-xl text-white font-medium py-1 mb-8 pl-4">Sign up and discover more!</div>
+            <div className="text-2xl md:text-4xl text-white font-bold py-2">👋New Here?</div>
+            <div className="text-lg md:text-xl text-white font-medium py-1 mb-5 md:mb-8 pl-4">Sign up and discover more!</div>
             <button id="signUp" className="w-24 h-10 font-medium bg-white rounded  ml-20 md:ml-4 text-black font-white hover:bg-gray-200" onClick={clickHandler}>Sign Up</button>
           </div>
         </div>
