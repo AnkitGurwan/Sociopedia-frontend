@@ -88,7 +88,7 @@ const LoginPage = () => {
         <div className="w-full md:w-1/3 h-1/4 md:h-full my-0 bg-green-600 flex items-center justify-center">
           <div className="">
             <div className="text-2xl md:text-4xl text-white font-bold py-2">👋New Here?</div>
-            <div className="text-lg md:text-xl text-white font-medium py-1 mb-5 md:mb-8 pl-4">Sign up and discover more!</div>
+            <div className="text-lg md:text-xl text-white font-medium mb-5 md:mb-8 pl-4">Sign up and discover more!</div>
             <button id="signUp" className="w-24 h-10 font-medium bg-white rounded  ml-20 md:ml-4 text-black font-white hover:bg-gray-200" onClick={clickHandler}>Sign Up</button>
           </div>
         </div>
