@@ -108,7 +108,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>:
-                <div className="mt-8 mx-0 md:mx-12 h-72 md:h-3/4 overflow-y-scroll">
+                <div className="mt-4 md:mt-8 mx-0 md:mx-12 h-68 md:h-3/4 overflow-y-scroll">
                     <Friendlist/>
                 </div>}
                 </div>
