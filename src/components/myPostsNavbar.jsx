@@ -20,7 +20,7 @@ const Navbar = () => {
         });
       }
       return (
-          <header class="bg-blue-900 py-4 md:py-3 px-4 md:px-6 fixed w-full z-10">
+          <header class="bg-blue-900 py-4 md:py-3 px-3 md:px-6 fixed w-full z-10">
             <nav class="container mx-auto flex items-center justify-between">
               <a href="/home" class="text-white font-bold text-xl md:text-3xl">Sociopedia</a>
               <ul class="flex items-center">
