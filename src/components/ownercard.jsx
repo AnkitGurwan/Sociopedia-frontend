@@ -13,13 +13,13 @@ const Ownercard = () => {
                 </div>
                 <div className='w-24 md:w-48 pl-1 md:pl-4 pr-0 md:pr-1'>
                     <div className="font-semibold text-gray-700 text-[0.7rem] md:text-lg capitalize">{`${user.firstName} ${user.lastName}`}</div>
-                    <div className='text-muted text-gray-500 text-[0.7rem] md:text-sm bg-gray-200 w-full md:w-3/5 px-0 md:px-2 pl-1 mt-1 rounded-sm' >Following : {user.friends?user.friends.length:0}</div>
+                    <div className='text-muted text-gray-500 text-[0.65rem] md:text-sm bg-gray-200 w-full md:w-3/5 px-0 md:px-2 pl-1 mt-1 rounded-sm' >Following : {user.friends?user.friends.length:0}</div>
                 </div>
                 <div>
                 </div>
             </div>
             <hr/>
-            <div className='h-20 py-1 md:py-4 px-0 md:px-2 flex flex-col'>
+            <div className='h-16 md:h-20 py-1 md:py-4 px-0 md:px-2 flex flex-col'>
                 <div className='flex items-center h-1/2'>
                     <div><span class="material-symbols-outlined text-lg px-1 text-gray-500">pin_drop</span></div>
                     <div className='text-[0.7rem] md:text-sm text-gray-500 px-2 mt-1 md:mt-0 mb-1 capitalize'>{user.location}</div>
