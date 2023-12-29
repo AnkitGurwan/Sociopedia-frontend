@@ -30,7 +30,7 @@ const HomePage = () => {
 
     return (
         <div className="h-full w-full">            
-            <div className="h-full w-full grid grid-cols-3 absolute top-16 md:top-0">
+            <div className="h-full w-full grid grid-cols-3 absolute top-12 md:top-0">
             
                 <div className="col-span-1 w-2/5 md:w-1/3 pt-7 md:pt-20 fixed py-4 md:pr-4 h-full bg-gray-200">
                 {loading?
@@ -91,7 +91,7 @@ const HomePage = () => {
                 <div className="col-span-0 md:col-span-1 h-full w-2/5 md:w-1/3 bg-gray-200 fixed top-1/2 md:top-12 right-3/5 md:right-0 px-1">
                 {loading
                 ?
-                <div class="mr-4 md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
+                <div class="md:mr-8 border my-0 md:my-12 bg-gray-100 border-blue-100 shadow rounded-md p-2 max-w-sm w-4/5  mx-auto">
                     <div class="animate-pulse flex space-x-4">
                         <div class="rounded-full bg-slate-200 h-10 w-10"></div>
                         <div class="flex-1 space-y-6 py-1">
@@ -107,8 +107,9 @@ const HomePage = () => {
                         </div>
                         </div>
                     </div>
-                </div>:
-                <div className="mt-4 md:mt-8 mx-0 md:mx-12 h-68 md:h-3/4 overflow-y-scroll">
+                </div>
+                :
+                <div className="mt-4 md:mt-8 mx-0 md:mx-12 h-60 md:h-3/4 overflow-y-scroll">
                     <Friendlist/>
                 </div>}
                 </div>

@@ -38,7 +38,7 @@ const ProfilePage = () => {
             </div>
           </div>
 
-          <div className="mt-4 h-80 md:h-48 px-1 md:mx-24 md:pl-4 overflow-y-scroll">
+          <div className="mt-4 h-60 md:h-48 px-1 md:mx-24 md:pl-4 overflow-y-scroll">
             <Friendlist />
           </div>
         </div>
