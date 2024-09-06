@@ -34,12 +34,16 @@ const Feeds = ({
   }, []);
 
   const Calculate2 = () => {
-    const thisPost = posts.filter((post) => post._id === postId);
-    const x = Object.keys(thisPost[0].likes);
-    if (x)
-      x.map((id) => {
-        if (id === user._id) setLiked(true);
-      });
+    // Directly find the post with the given postId
+    const post = posts.find((post) => post._id === postId);
+  
+    // If post is found and likes exists
+    if (post && post.likes) {
+      // Check if the user ID is in the likes
+      if (post.likes.has(user._id)) {
+        setLiked(true);
+      }
+    }
   };
 
   const friendhandler = async () => {
